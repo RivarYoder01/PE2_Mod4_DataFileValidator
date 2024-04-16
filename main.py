@@ -15,6 +15,7 @@ __status__ = 'Development'
 
 
 def process_file():
+    print
 
 
 if __name__ == '__main__':
