@@ -1,16 +1,21 @@
-# This is a sample Python script.
+#!/user.bin.env python3
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+"""
+Opening Docstring
+
+GitHub URL: https://github.com/kasnyd/DataValidation
+"""
+
+#  Insert Imports As Needed
+
+__author__ = 'Rivar Yoder | Kaeden Snyder'
+__version__ = '1.0'
+__date__ = '4/22/2024'
+__status__ = 'Development'
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def process_file():
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    process_file()
