@@ -16,6 +16,7 @@ __version__ = '1.0'
 __date__ = '4/22/2024'
 __status__ = 'Development'
 
+
 # Validate ID
 def validate_id(id):
     regex = "^\\d+$"
@@ -23,6 +24,14 @@ def validate_id(id):
         return ""
     else:
         return "I"
+
+
+def validate_name(name):
+    names = name.split(",")
+    if len(names) == 2:
+        return ""
+    else:
+        return "N"
 
 
 def process_file():
