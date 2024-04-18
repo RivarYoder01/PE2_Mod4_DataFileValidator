@@ -37,20 +37,19 @@ def validate_name(name):
 
 
 def process_file():
-    with open('DataInput.csv', 'r') as file, open('InvalidData.csv') as b, open('ValidData.csv') as c:
+    with open('DataInput.csv', 'r') as file, open('InvalidData.csv') as invalid, open('ValidData.csv') as valid:
         reader = csv.reader(file, delimiter='|')
         for row in reader:
             error_string = ""
             data_count = len(row)
+
             if data_count == 6:
                 error_string += validate_id(row[0])
                 error_string += validate_name(row[1])
             else:
                 error_string = "C"
 
-            #  if error_string == "":
-                #  first_name, last_name = process_name(line[1])
-
+            print(error_string)
 
 
 if __name__ == '__main__':
