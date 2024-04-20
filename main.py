@@ -20,7 +20,7 @@ __status__ = 'Development'
 # Validate ID
 def validate_id(id):
     regex = "^\\d+$"
-    if re.compile(regex).match(id):
+    if re.compile(regex).match(id[0]):
         return ""
     else:
         return "I"
@@ -37,8 +37,9 @@ def validate_name(name):
 
 
 def process_file():
-    with open('DataInput.csv', 'r') as file, open('InvalidData.csv') as invalid, open('ValidData.csv') as valid:
-        reader = csv.reader(file, delimiter='|')
+    with open('DataInput.csv') as input_file:
+        reader = csv.reader(input_file, delimiter='|')
+
         for row in reader:
             error_string = ""
             data_count = len(row)
