@@ -10,6 +10,7 @@ GitHub URL: https://github.com/kasnyd/DataValidation
 
 import re
 import csv
+from datetime import datetime
 
 __author__ = 'Rivar Yoder | Kaeden Snyder'
 __version__ = '1.0'
@@ -19,6 +20,11 @@ __status__ = 'Development'
 
 # Validate ID
 def validate_id(id):
+    """
+
+    :param id:
+    :return:
+    """
     regex = "^\\d+$"
     if re.compile(regex).match(id[0]):
         return "(PASS)"  # Change to '' after testing
@@ -29,6 +35,12 @@ def validate_id(id):
 
 
 def validate_name(name):
+    """
+
+    :param name:
+    :return:
+    """
+
     names = name.split(",")
     if len(names) == 2:
         return "(PASS)"  # Change to '' after testing
@@ -37,6 +49,12 @@ def validate_name(name):
 
 
 def validate_email(email):
+    """
+
+    :param email:
+    :return:
+    """
+
     regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     if re.fullmatch(regex, email):
         return '(PASS)'  # Change to '' after testing
@@ -45,6 +63,12 @@ def validate_email(email):
 
 
 def validate_phone(phone):
+    """
+
+    :param phone:
+    :return:
+    """
+
     regex = r'^\d{3}-\d{3}-\d{4}$'
     if re.fullmatch(regex, phone):
         return '(PASS)'  # Change to '' after testing
@@ -78,6 +102,7 @@ def process_file():
                 error_string += validate_name(row[1])
                 error_string += validate_email(row[2])
                 error_string += validate_phone(row[3])
+                error_string += validate_date(row[4])
             else:
                 error_string = "C"
 
