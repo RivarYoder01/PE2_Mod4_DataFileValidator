@@ -41,11 +41,15 @@ def validate_email(email):
     if re.fullmatch(regex, email):
         return '(PASS)'  # Change to '' after testing
     else:
-        return 'N'
+        return 'E'
 
 
 def validate_phone(phone):
-    pass
+    regex = r'^\d{3}-\d{3}-\d{4}$'
+    if re.fullmatch(regex, phone):
+        return '(PASS)'  # Change to '' after testing
+    else:
+        return 'P'
 
 
 def validate_date(date):
@@ -73,6 +77,7 @@ def process_file():
                 error_string += validate_id(row[0])
                 error_string += validate_name(row[1])
                 error_string += validate_email(row[2])
+                error_string += validate_phone(row[3])
             else:
                 error_string = "C"
 
