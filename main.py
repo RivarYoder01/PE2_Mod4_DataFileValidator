@@ -77,11 +77,21 @@ def validate_phone(phone):
 
 
 def validate_date(date):
-    pass
+    date_format = "%m/%d/%Y"
+    try:
+        datetime.strptime(date, date_format)
+        return '(PASS)'
+    except ValueError:
+        return 'D'
 
 
 def validate_time(time):
-    pass
+    time_format = "%H:%M:%S"
+    try:
+        datetime.strptime(time, time_format)
+        return '(PASS)'
+    except ValueError:
+        return 'T'
 
 
 def process_file():
