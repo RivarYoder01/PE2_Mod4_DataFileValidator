@@ -21,7 +21,7 @@ __status__ = 'Development'
 def validate_id(id):
     regex = "^\\d+$"
     if re.compile(regex).match(id[0]):
-        return ""
+        return "(PASS)"  # Change to '' after testing
     else:
         return "I"
 
@@ -31,14 +31,39 @@ def validate_id(id):
 def validate_name(name):
     names = name.split(",")
     if len(names) == 2:
-        return ""
+        return "(PASS)"  # Change to '' after testing
     else:
         return "N"
 
 
+def validate_email(email):
+    regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+    if re.fullmatch(regex, email):
+        return '(PASS)'  # Change to '' after testing
+    else:
+        return 'N'
+
+
+def validate_phone(phone):
+    pass
+
+
+def validate_date(date):
+    pass
+
+
+def validate_time(time):
+    pass
+
+
 def process_file():
-    with open('DataInput.csv') as input_file:
+    with open('DataInput.csv', 'r', newline='') as input_file, \
+            open('ValidData', 'w', newline='') as valid_file, \
+            open('InvalidData.csv', 'w', newline='') as invalid_file:
+
         reader = csv.reader(input_file, delimiter='|')
+        valid_writer = csv.reader(valid_file, delimiter=',')
+        invalid_writer = csv.writer(invalid_file, delimiter='|')
 
         for row in reader:
             error_string = ""
@@ -47,6 +72,7 @@ def process_file():
             if data_count == 6:
                 error_string += validate_id(row[0])
                 error_string += validate_name(row[1])
+                error_string += validate_email(row[2])
             else:
                 error_string = "C"
 
