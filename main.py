@@ -18,7 +18,6 @@ __date__ = '4/22/2024'
 __status__ = 'Development'
 
 
-# Validate ID
 def validate_id(id):
     """
 
@@ -95,13 +94,17 @@ def validate_time(time):
 
 
 def process_file():
-    with open('DataInput.csv', 'r', newline='') as input_file, \
-            open('ValidData', 'w', newline='') as valid_file, \
-            open('InvalidData.csv', 'w', newline='') as invalid_file:
 
-        reader = csv.reader(input_file, delimiter='|')
-        valid_writer = csv.reader(valid_file, delimiter=',')
-        invalid_writer = csv.writer(invalid_file, delimiter='|')
+    DASH_LENGTH = 40
+
+    try:
+        with open('DataInput.csv', 'r', newline='') as input_file, \
+                open('ValidData', 'w', newline='') as valid_file, \
+                open('InvalidData.csv', 'w', newline='') as invalid_file:
+
+            reader = csv.reader(input_file, delimiter='|')
+            valid_writer = csv.reader(valid_file, delimiter=',')
+            invalid_writer = csv.writer(invalid_file, delimiter='|')
 
         input_counter = 0
 
@@ -126,6 +129,14 @@ def process_file():
             print(error_string)
             print()
 
+            #  INSERT CODE FOR WRITING TO VALID_DATA AND INVALID_DATA
+
+            print('=' * DASH_LENGTH)
+            print(f'{'Read Complete': >25}')
+            print('=' * DASH_LENGTH)
+
+    except OSError:
+        print('Unable to access files')
 
 
 def display_report():
@@ -133,6 +144,7 @@ def display_report():
 
     :return:
     """
+
     DASH_LENGTH = 40
 
     print('=' * DASH_LENGTH)
@@ -145,6 +157,7 @@ def display_report():
     print('E: Email is not in proper email format or the .edu extension')
     print('D: Date is not in MM/DD/YYY format')
     print('T: Time is not in HH:MM military format')
+    print()
 
     print('=' * DASH_LENGTH)
     print(f'{'Errors Found': >25}')
