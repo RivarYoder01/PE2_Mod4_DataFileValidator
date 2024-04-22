@@ -27,7 +27,7 @@ def validate_id(id):
     """
     regex = "^\\d+$"
     if re.compile(regex).match(id[0]):
-        return "(PASS)"  # Change to '' after testing
+        return ""
     else:
         return "I"
 
@@ -43,7 +43,7 @@ def validate_name(name):
 
     names = name.split(",")
     if len(names) == 2:
-        return "(PASS)"  # Change to '' after testing
+        return ""
     else:
         return "N"
 
@@ -57,7 +57,7 @@ def validate_email(email):
 
     regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     if re.fullmatch(regex, email):
-        return '(PASS)'  # Change to '' after testing
+        return ''
     else:
         return 'E'
 
@@ -71,7 +71,7 @@ def validate_phone(phone):
 
     regex = r'^\d{3}-\d{3}-\d{4}$'
     if re.fullmatch(regex, phone):
-        return '(PASS)'  # Change to '' after testing
+        return ''
     else:
         return 'P'
 
@@ -80,16 +80,16 @@ def validate_date(date):
     date_format = "%m/%d/%Y"
     try:
         datetime.strptime(date, date_format)
-        return '(PASS)'
+        return ''
     except ValueError:
         return 'D'
 
 
 def validate_time(time):
-    time_format = "%H:%M:%S"
+    time_format = "%H:%M"
     try:
         datetime.strptime(time, time_format)
-        return '(PASS)'
+        return ''
     except ValueError:
         return 'T'
 
@@ -103,9 +103,15 @@ def process_file():
         valid_writer = csv.reader(valid_file, delimiter=',')
         invalid_writer = csv.writer(invalid_file, delimiter='|')
 
+        input_counter = 0
+
         for row in reader:
             error_string = ""
             data_count = len(row)
+
+            input_counter += 1
+
+            print('Input', input_counter, ':')
 
             if data_count == 6:
                 error_string += validate_id(row[0])
@@ -113,11 +119,39 @@ def process_file():
                 error_string += validate_email(row[2])
                 error_string += validate_phone(row[3])
                 error_string += validate_date(row[4])
+                error_string += validate_time(row[5])
             else:
                 error_string = "C"
 
             print(error_string)
+            print()
+
+
+
+def display_report():
+    """
+
+    :return:
+    """
+    DASH_LENGTH = 40
+
+    print('=' * DASH_LENGTH)
+    print(f'{'Error Index': >25}')
+    print('=' * DASH_LENGTH)
+
+    print('C: Not all data is present')
+    print('I: ID is not an integer')
+    print('N: Name is not in FIRSTNAME, LASTNAME format')
+    print('E: Email is not in proper email format or the .edu extension')
+    print('D: Date is not in MM/DD/YYY format')
+    print('T: Time is not in HH:MM military format')
+
+    print('=' * DASH_LENGTH)
+    print(f'{'Errors Found': >25}')
+    print('=' * DASH_LENGTH)
+
+    process_file()
 
 
 if __name__ == '__main__':
-    process_file()
+    display_report()
