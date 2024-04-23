@@ -19,6 +19,7 @@ __status__ = 'Development'
 
 DASH_LENGTH = 40
 
+
 def validate_id(id):
     """
 
@@ -30,9 +31,6 @@ def validate_id(id):
         return ""
     else:
         return "I"
-
-
-# Validate Name
 
 
 def validate_name(name):

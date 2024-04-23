@@ -1,5 +1,30 @@
-INPD|abc|Johnson|dejohns2@gmail.com|1112223333|12/31/80|08:34
-C|7|Johnson,Debbie|dejohns2@wsc.edu|111-222-3333|12-31-2019
-IND|#|Brown|mbrown@domain.com|123-456-7890|11/10/75|10:00
-ET|9|Williams,Jane|jwilliams@@example.com|555-444-3333|07/20/1988|18-00
-NP|10|Chan,Marcus,Meds|mchan@example.co|abc-456-7890|06/15/1998|11:30
+NPD|31|Johnson|dejohns2@gmail.com|1112223333|12/31/80|08:34
+C|32|Johnson,Debbie|dejohns2@wsc.edu|111-222-3333|12-31-2019
+ND|33|Brown|mbrown@domain.com|123-456-7890|11/10/75|10:00
+ET|34|Williams,Jane|jwilliams@@example.com|555-444-3333|07/20/1988|18-00
+NP|35|Chan,Marcus,Meds|mchan@example.co|abc-456-7890|06/15/1998|11:30
+C|36|def|Doe,John|jdoe@example.com|1234567890|01/25/85|12:30
+DT|37|Lee,Susan|susanlee@wsc.edu|321-654-9870|03-05-1982|4:45 PM
+PD|38|Garcia, Luis|lgarcia@wsc.edu|123-45-6789|08/20/86|15:15
+DT|39|Patel,Sonia|s.patel@wsc.edu|123-456-7890|1998-02-12|1:00 PM
+T|40|Chan,Andrew|achan@wsc.edu|123-456-7890|06/15/1998|11:30 PM
+DT|41|Kim,Min|mkim@wsc.edu|123-456-7890|12/25/85|25:00
+T|42|Smith,John|jsmith@wsc.edu|123-456-7890|01/15/1990|9:15 AM
+D|43|Johnson,Debbie|dejohns2@wsc.edu|111-222-3333|31/12/2019|13:40
+D|44|Doe,Alice|adoe@wsc.edu|123-456-7890|05-20-1985|14:30
+PD|45|Brown,Michael|mbrown@wsc.edu|1234567890|11/10/75|10:00
+D|46|Lee,Susan|slee@wsc.edu|321-654-9870|1982/03/05|16:45
+T|47|Nguyen,Daniel|dnguyen@wsc.edu|777-888-9999|09/02/1995|12:20 PM
+IEP|plle|Taylor,Sarah|staylor@=wsc.edu|66-777-8888|07/15/1988|8:30
+PT|49|Clark,|kclark@wsc.edu|777-9999|12/31/1980|17
+T|50|Miller,Emily|emiller@wsc.edu|888-999-0000|04/25/1992|11:45am
+C|51|Garcia,Luis|lgarcia@wsc.edu|999-000-1111|08/20/1986|15:15|34
+NED|52|Patel,Ro,Sonia|spatel@wscdu|000-111-2222|2/1998|13:00
+P|53|Chan,Marcus|mchan@wsc.edu|abc-456-7890|06/15/1998|11:30
+P|54|Kumar,Raj|rkumar@wsc.edu|123-45-6789|01/25/1995|12:30
+T|55|Smith,John|jsmith@wsc.edu|555-666-7777|01/15/1990|25:15
+N|56|Johnson|dejohns2@wsc.edu|111-222-3333|12/31/2019|13:40
+N|57|Brown|mbrown@wsc.edu|123-456-7890|11/10/1975|10:00
+N|58|Lee|slee@wsc.edu|321-654-9870|03/05/1982|16:45
+N|59|Nguyen|dnguyen@wsc.edu|777-888-9999|09/02/1995|12:20
+N|60|Smith|jsmith@wsc.edu|555-666-7777|01/15/1990|09:15
