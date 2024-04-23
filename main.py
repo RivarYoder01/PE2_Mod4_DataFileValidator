@@ -103,7 +103,7 @@ def process_file():
                 open('InvalidData.csv', 'w', newline='') as invalid_file:
 
             reader = csv.reader(input_file, delimiter='|')
-            valid_writer = csv.reader(valid_file, delimiter=',')
+            valid_writer = csv.writer(valid_file, delimiter=',')
             invalid_writer = csv.writer(invalid_file, delimiter='|')
 
             input_counter = 0
@@ -112,7 +112,6 @@ def process_file():
                 error_string = ""
                 data_count = len(row)
                 input_counter += 1
-
 
                 print('Input', input_counter, ':')
 
@@ -129,10 +128,12 @@ def process_file():
                 print(error_string)
                 print()
 
-                #  if error_string == ' ':
-                #  valid_file.write(row)
-                #  else:
-                #  invalid_file.write(row)
+                if error_string == ' ':
+                    valid_writer.writerow(row)
+                else:
+                    invalid_writer.writerow(row)
+                    row.insert(0, error_string)
+                    print(row)
 
             print('=' * DASH_LENGTH)
             print(f'{'Read Complete': >25}')
