@@ -30,6 +30,7 @@ def validate_id(id):
     else:
         return "I"
 
+
 # Validate Name
 
 
@@ -94,7 +95,6 @@ def validate_time(time):
 
 
 def process_file():
-
     DASH_LENGTH = 40
 
     try:
@@ -128,7 +128,10 @@ def process_file():
                 print(error_string)
                 print()
 
-                #  INSERT CODE FOR WRITING TO VALID_DATA AND INVALID_DATA
+                #  if error_string == ' ':
+                #  valid_file.write(row)
+                #  else:
+                #  invalid_file.write(row)
 
             print('=' * DASH_LENGTH)
             print(f'{'Read Complete': >25}')
