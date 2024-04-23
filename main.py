@@ -113,6 +113,7 @@ def process_file():
                 data_count = len(row)
                 input_counter += 1
 
+
                 print('Input', input_counter, ':')
 
                 if data_count == 6:
@@ -165,7 +166,10 @@ def display_report():
     print(f'{'Errors Found': >25}')
     print('=' * DASH_LENGTH)
 
-    process_file()
+    try:
+        process_file()
+    except OSError:
+        print('Cannot run process_file')
 
 
 if __name__ == '__main__':
