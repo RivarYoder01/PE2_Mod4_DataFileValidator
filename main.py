@@ -106,30 +106,29 @@ def process_file():
             valid_writer = csv.reader(valid_file, delimiter=',')
             invalid_writer = csv.writer(invalid_file, delimiter='|')
 
-        input_counter = 0
+            input_counter = 0
 
-        for row in reader:
-            error_string = ""
-            data_count = len(row)
+            for row in reader:
+                error_string = ""
+                data_count = len(row)
+                input_counter += 1
 
-            input_counter += 1
+                print('Input', input_counter, ':')
 
-            print('Input', input_counter, ':')
+                if data_count == 6:
+                    error_string += validate_id(row[0])
+                    error_string += validate_name(row[1])
+                    error_string += validate_email(row[2])
+                    error_string += validate_phone(row[3])
+                    error_string += validate_date(row[4])
+                    error_string += validate_time(row[5])
+                else:
+                    error_string = "C"
 
-            if data_count == 6:
-                error_string += validate_id(row[0])
-                error_string += validate_name(row[1])
-                error_string += validate_email(row[2])
-                error_string += validate_phone(row[3])
-                error_string += validate_date(row[4])
-                error_string += validate_time(row[5])
-            else:
-                error_string = "C"
+                print(error_string)
+                print()
 
-            print(error_string)
-            print()
-
-            #  INSERT CODE FOR WRITING TO VALID_DATA AND INVALID_DATA
+                #  INSERT CODE FOR WRITING TO VALID_DATA AND INVALID_DATA
 
             print('=' * DASH_LENGTH)
             print(f'{'Read Complete': >25}')
