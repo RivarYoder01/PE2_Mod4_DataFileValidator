@@ -99,7 +99,7 @@ def process_file():
 
     try:
         with open('DataInput.csv', 'r', newline='') as input_file, \
-                open('ValidData', 'w', newline='') as valid_file, \
+                open('ValidData.csv', 'w', newline='') as valid_file, \
                 open('InvalidData.csv', 'w', newline='') as invalid_file:
 
             reader = csv.reader(input_file, delimiter='|')
@@ -128,12 +128,11 @@ def process_file():
                 print(error_string)
                 print()
 
-                if error_string == ' ':
+                if error_string == '':
                     valid_writer.writerow(row)
                 else:
-                    invalid_writer.writerow(row)
                     row.insert(0, error_string)
-                    print(row)
+                    invalid_writer.writerow(row)
 
             print('=' * DASH_LENGTH)
             print(f'{'Read Complete': >25}')
