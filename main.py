@@ -17,6 +17,7 @@ __version__ = '1.0'
 __date__ = '4/22/2024'
 __status__ = 'Development'
 
+DASH_LENGTH = 40
 
 def validate_id(id):
     """
@@ -95,7 +96,6 @@ def validate_time(time):
 
 
 def process_file():
-    DASH_LENGTH = 40
 
     try:
         with open('DataInput.csv', 'r', newline='') as input_file, \
@@ -129,6 +129,10 @@ def process_file():
                 print()
 
                 if error_string == '':
+                    last_name, first_name = row[1].split(',')
+                    row[1] = f'{first_name} {last_name}'
+                    row[3] = re.sub('-', '.', row[3])
+                    row[4] = re.sub('/', '-', row[4])
                     valid_writer.writerow(row)
                 else:
                     row.insert(0, error_string)
@@ -147,8 +151,6 @@ def display_report():
 
     :return:
     """
-
-    DASH_LENGTH = 40
 
     print('=' * DASH_LENGTH)
     print(f'{'Error Index': >25}')
