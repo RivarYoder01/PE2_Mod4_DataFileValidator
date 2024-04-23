@@ -6,18 +6,16 @@ Opening Docstring
 GitHub URL: https://github.com/kasnyd/DataValidation
 """
 
-#  Insert Imports As Needed
-
-import re
-import csv
-from datetime import datetime
+import re  # For finding and creating formatting rules/ errors
+import csv  # Allows Import and Export of .csv files
+from datetime import datetime  # Allows specifications on the date and time
 
 __author__ = 'Rivar Yoder | Kaeden Snyder'
 __version__ = '1.0'
 __date__ = '4/22/2024'
 __status__ = 'Development'
 
-DASH_LENGTH = 40
+DASH_LENGTH = 40  # Used in formatting
 
 
 def validate_id(id):
@@ -49,30 +47,53 @@ def validate_name(name):
 
 def validate_email(email):
     """
+    Receives the email from the current data string, checks that it is in the standard format for email addresses
+
+    ChatGPT referenced to explain regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+/.[A-Z|a-z]{2,7}\b
+    https://chat.openai.com/share/4b3e4eb8-cade-4e58-8727-cf0d9ff6d495
+        \b - The start of the email
+        [A-Za-z0-9._%+-] - Represents the characters that can be used in an email username
+        @ - Ensures '@' is present
+        [A-Za-z0-9.-] - Represents the text that can be used in the domain name, does not include top level domain
+        /. - Ensures the '.' is present
+        [A-Z|a-z]{2,7} - 2 to 7 upper or lowercase characters that make up the top level domain
+        \b - End of the email
+        + - Utilized to add all arguments together
 
     :param email:
     :return:
     """
 
+    # establishes email format (See docstring above for detail)
     regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
-    if re.fullmatch(regex, email):
-        return ''
+    if re.fullmatch(regex, email):  # Compares the email to the format rules
+        return ''  # Keeps error_string empty if all is good
     else:
-        return 'E'
+        return 'E'  # Pushed to error_string, will be displayed
 
 
 def validate_phone(phone):
     """
+    Receives the phone number from the current data string, checks that it is in the standard format for phone numbers
+
+    ChatGPT referenced to explain regex = r'^/d{3}-/d{3}-/d{4}$'
+    https://chat.openai.com/share/4b3e4eb8-cade-4e58-8727-cf0d9ff6d495
+        r'^ - Beginning of string
+        /d{3} (Used twice) - Any single digit can be used to fill in each of the 3 characters
+        '-' - Hyphen as separate
+        /d{4} - Same as /d{3} but with 4 digits
+        $' - end of the string
 
     :param phone:
     :return:
     """
 
+    # establishes phone number format (See docstring above for detail)
     regex = r'^\d{3}-\d{3}-\d{4}$'
     if re.fullmatch(regex, phone):
-        return ''
+        return ''  # Keeps error_string empty if all is good
     else:
-        return 'P'
+        return 'P'  # Pushed to error_string, will be displayed
 
 
 def validate_date(date):
@@ -94,17 +115,16 @@ def validate_time(time):
 
 
 def process_file():
-
-    try:
+    try: # opens DataInput to be read, ValidData to be written, and Invalid Data to be written
         with open('DataInput.csv', 'r', newline='') as input_file, \
                 open('ValidData.csv', 'w', newline='') as valid_file, \
                 open('InvalidData.csv', 'w', newline='') as invalid_file:
 
-            reader = csv.reader(input_file, delimiter='|')
+            reader = csv.reader(input_file, delimiter='|')  # Makes reader for DataInput, pipe delimited
             valid_writer = csv.writer(valid_file, delimiter=',')
-            invalid_writer = csv.writer(invalid_file, delimiter='|')
+            invalid_writer = csv.writer(invalid_file, delimiter='|')  # Makes reader for InvalidData, pipe delimited
 
-            input_counter = 0
+            input_counter = 0  # Will be used to separate all the inputs and number them to be displayed
 
             for row in reader:
                 error_string = ""
