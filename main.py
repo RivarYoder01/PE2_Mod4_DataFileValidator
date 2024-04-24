@@ -21,14 +21,14 @@ __status__ = 'Development'
 DASH_LENGTH = 40  # Used in formatting
 
 
-def validate_id(id):
+def validate_id(ident):
     """
 
-    :param id:
+    :param ident:
     :return:
     """
     regex = "^\\d+$"
-    if re.compile(regex).match(id[0]):
+    if re.compile(regex).match(ident[0]):
         return ""
     else:
         return "I"
@@ -134,7 +134,7 @@ def process_file():
     https://chat.openai.com/share/8ac2ffbf-e9b8-415a-a7eb-c5dde0b13892
     :return:
     """
-    try: # opens DataInput to be read, ValidData to be written, and Invalid Data to be written
+    try:  # opens DataInput to be read, ValidData to be written, and Invalid Data to be written
         with open('DataInput.csv', 'r', newline='') as input_file, \
                 open('ValidData.csv', 'w', newline='') as valid_file, \
                 open('InvalidData.csv', 'w', newline='') as invalid_file:
@@ -143,14 +143,14 @@ def process_file():
             valid_writer = csv.writer(valid_file, delimiter=',')
             invalid_writer = csv.writer(invalid_file, delimiter='|')  # Makes reader for InvalidData, pipe delimited
 
-            input_counter = 0  # Will be used to separate all the inputs and number them to be displayed
+            input_counter = 0  # Tracks how many total data inputs there are
+            valid_count = 0  # Keeps track of how many are valid
+            invalid_count = 0  # Keeps track of how many are invalid
 
             for row in reader:
                 error_string = ""
                 data_count = len(row)
                 input_counter += 1
-
-                print('Input', input_counter, ':')
 
                 if data_count == 6:
                     error_string += validate_id(row[0])
@@ -162,29 +162,25 @@ def process_file():
                 else:
                     error_string = "C"
 
-                print(error_string)
-                print()
-
                 if error_string == '':
+                    valid_count += 1  # Adds to be displayed later
                     last_name, first_name = row[1].split(',')  # Splits the name by the comma
                     row[1] = f'{first_name} {last_name}'  # Flips first_name and last name
                     row[3] = re.sub('-', '.', row[3])  # Replaces '-' with '.' in phone number
                     row[4] = re.sub('/', '-', row[4])  # Replaces '/' with '-' in date
                     valid_writer.writerow(row)  # Writes row to ValidData
                 else:
+                    invalid_count += 1  # Adds to be displayed later
                     row.insert(0, error_string)  # Puts the error codes at the beginning of row
                     invalid_writer.writerow(row)  # Writes row to InvalidData
 
-            #  Ending message and user interface
-            print('=' * DASH_LENGTH)
-            print(f'{'Read Complete': >25}')
-            print('=' * DASH_LENGTH)
+        display_report(input_counter, valid_count, invalid_count)
 
     except OSError:
         print('Unable to access files')  # Error message for if the files do not open
 
 
-def display_report():
+def display_report(input_counter, valid_count, invalid_count):
     """
     Opening message for the user
 
@@ -205,26 +201,29 @@ def display_report():
     """
 
     print('=' * DASH_LENGTH)
+    print(f'{'Read Complete': >25}')
+    print('=' * DASH_LENGTH)
+
+    print('Total Input Checked:', input_counter)
+    print('Total Valid Input:  ', valid_count)
+    print('Total Invalid Input:', invalid_count)
+
+    print('=' * DASH_LENGTH)
     print(f'{'Error Index': >25}')
     print('=' * DASH_LENGTH)
 
     print('C: Not all data is present')
-    print('I: ID is not an integer')
-    print('N: Name is not in FIRSTNAME, LASTNAME format')
-    print('E: Email is not in proper email format or the .edu extension')
-    print('D: Date is not in MM/DD/YYY format')
-    print('T: Time is not in HH:MM military format')
+    print('I: ID not an integer')
+    print('N: Name not in two name format')
+    print('E: Email not in email format or .edu')
+    print('D: Date not in MM/DD/YYY format')
+    print('T: Time not in HH:MM military format')
     print()
 
     print('=' * DASH_LENGTH)
-    print(f'{'Errors Found': >25}')
+    print(f'{'Goodbye! :)': >25}')
     print('=' * DASH_LENGTH)
-
-    try:
-        process_file()  # Tests all the data from DataInput
-    except OSError:
-        print('Cannot run process_file')  # Runs incase process_file cannot run
 
 
 if __name__ == '__main__':
-    display_report()
+    process_file()
