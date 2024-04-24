@@ -218,7 +218,6 @@ def display_report(input_counter, valid_count, invalid_count):
     print('E: Email not in email format or .edu')
     print('D: Date not in MM/DD/YYY format')
     print('T: Time not in HH:MM military format')
-    print()
 
     print('=' * DASH_LENGTH)
     print(f'{'Goodbye! :)': >25}')
