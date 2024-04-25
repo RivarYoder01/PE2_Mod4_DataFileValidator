@@ -147,20 +147,20 @@ def process_file():
             valid_count = 0  # Keeps track of how many are valid
             invalid_count = 0  # Keeps track of how many are invalid
 
-            for row in reader:
-                error_string = ""
-                data_count = len(row)
-                input_counter += 1
+            for row in reader:  # Iterates through each line of DataInput
+                error_string = ""  # Empties error_string each time a new line is checked
+                data_count = len(row)  # Checks how many strings there are in the line
+                input_counter += 1  # Tracks how many times there is an interation
 
-                if data_count == 6:
-                    error_string += validate_id(row[0])
-                    error_string += validate_name(row[1])
-                    error_string += validate_email(row[2])
-                    error_string += validate_phone(row[3])
-                    error_string += validate_date(row[4])
-                    error_string += validate_time(row[5])
-                else:
-                    error_string = "C"
+                if data_count == 6:  # Only runs if there are six strings in the row
+                    error_string += validate_id(row[0])  # Checks the ID
+                    error_string += validate_name(row[1])  # Checks the name
+                    error_string += validate_email(row[2])  # Checks the email
+                    error_string += validate_phone(row[3])  # Checks the phone number
+                    error_string += validate_date(row[4])  # Checks the date
+                    error_string += validate_time(row[5])  # Checks the time
+                else:  # Runs if there are more or less strings to check than necessary
+                    error_string = "C"  # Counter error
 
                 if error_string == '':
                     valid_count += 1  # Adds to be displayed later
@@ -200,6 +200,7 @@ def display_report(input_counter, valid_count, invalid_count):
     :return:
     """
 
+    # User Interface
     print('=' * DASH_LENGTH)
     print(f'{'Read Complete': >25}')
     print('=' * DASH_LENGTH)
