@@ -1,28 +1,28 @@
 NPD|31|Johnson|dejohns2@gmail.com|1112223333|12/31/80|08:34
-C|32|Johnson,Debbie|dejohns2@wsc.edu|111-222-3333|12-31-2019
+C|32|Debbie,Johnson|dejohns2@wsc.edu|111-222-3333|12-31-2019
 ND|33|Brown|mbrown@domain.com|123-456-7890|11/10/75|10:00
-ET|34|Williams,Jane|jwilliams@@example.com|555-444-3333|07/20/1988|18-00
-NP|35|Chan,Marcus,Meds|mchan@example.co|abc-456-7890|06/15/1998|11:30
-C|36|def|Doe,John|jdoe@example|1234567890|01/25/85|12:30
-NEDT|37|Susan|susanleewsc.edu|321-654-9870|03-05-|4:45 PM
-IPD|oo|Garcia, Luis|lgarcia@wsc.edu|123-45-6789|08/20/86|15:15
-DT|39|Patel,Sonia|s.patel@wsc.edu|123-456-7890|1998-02-12|1:00 PM
-IEPDT|=|Chan,Andrew|cha=wsc.edu|123-456-0|06/151998|11:30 PM
-PDT|41|Kim,Mi|kim@wsc.edu|123-456-789---0|12/25/85|25:00
-PT|42|Smith,John|jsmith@wsc.edu|123-456-789009|01/15/1990|9:15 AM
-ED|43|Johnson,Debbie|dejohns2@wsc.edu@wsc.edu|111-222-3333|31/12/2019|13:40
-ED|44|Doe,Alice|adoe@wsc,edu|123-456-7890|05-20-1985|14:30
+ET|34|Jane,Williams|jwilliams@@example.com|555-444-3333|07/20/1988|18-00
+NP|35|Marcus,Meds,Chan|mchan@example.co|abc-456-7890|06/15/1998|11:30
+NEPD|36|John,Doe,def|jdoe@example|1234567890|01/25/85|12:30
+EDT|37|Susan,Lee|susanleewsc.edu|321-654-9870|03-05-|4:45 PM
+IPD|oo|Luis,Garcia|lgarcia@wsc.edu|123-45-6789|08/20/86|15:15
+DT|39|Sonia,Patel|s.patel@wsc.edu|123-456-7890|1998-02-12|1:00 PM
+IEPDT|=|Andrew,Chan|cha=wsc.edu|123-456-0|06/151998|11:30 PM
+PDT|41|Mi,Kim|kim@wsc.edu|123-456-789---0|12/25/85|25:00
+PT|42|John,Smith|jsmith@wsc.edu|123-456-789009|01/15/1990|9:15 AM
+ED|43|Debbie,Johnson|dejohns2@wsc.edu@wsc.edu|111-222-3333|31/12/2019|13:40
+ED|44|Alice,Doe|adoe@wsc,edu|123-456-7890|05-20-1985|14:30
 NPD|45|Michael|mbrown@wsc.edu|1234567890|11/10/75|10:00
-NPD|46|Lee Susan|slee@wsc.edu|321-654-70|1982/03/05|16:45
-IT|-------|Nguyen,Daniel|dnguyen@wsc.edu|777-888-9999|09/02/1995|12:20 PM
-IEPT|plle|Taylor,Sarah|staylor@=wsc.edu|66-777-8888|07/15/1988|8:30000
-PT|49|Clark,|kclark@wsc.edu|777-9999|12/31/1980|17
-PDT|50|Miller,Emily|emiller@wsc.com|888-999-000|04/25/192|11:45am
-C|51|Garcia,Luis|lgarcia@wsc.edu|999-000-1111|08/20/1986|15:15|34
-NED|52|Patel,Ro,Sonia|spatel@wscdu|000-111-2222|2/998|13:00
-NP|53|Chan,Marcus,kpo|mchan@wsc.edu|abc-456-7890|06/15/1998|11:30
-IP|oo|Kumar,Raj|rkumar@wsc.edu|123-45-6789|01/25/1995|12:30
-T|55|Smith,John|jsmith@wsc.edu|555-666-7777|01/15/1990|25:15
+PD|46|Susan,Lee|slee@wsc.edu|321-654-70|1982/03/05|16:45
+IT|-------|Daniel,Nguyen|dnguyen@wsc.edu|777-888-9999|09/02/1995|12:20 PM
+IEPT|plle|Sarah,Taylor|staylor@=wsc.edu|66-777-8888|07/15/1988|8:30000
+PT|49|,Clark|kclark@wsc.edu|777-9999|12/31/1980|17
+PDT|50|Emily,Miller|emiller@wsc.com|888-999-000|04/25/192|11:45am
+C|51|Luis,Garcia|lgarcia@wsc.edu|999-000-1111|08/20/1986|15:15|34
+NED|52|Sonia,Patel,Ro|spatel@wscdu|000-111-2222|2/998|13:00
+NP|53|Marcus,kpo,Chan|mchan@wsc.edu|abc-456-7890|06/15/1998|11:30
+IP|oo|Raj,Kumar|rkumar@wsc.edu|123-45-6789|01/25/1995|12:30
+T|55|John,Smith|jsmith@wsc.edu|555-666-7777|01/15/1990|25:15
 NPT|56|Johnson|dejohns2@wsc.edu|111-222-333|12/31/2019|99:00
 N|57|Brown|mbrown@wsc.edu.edu|123-456-7890|11/10/1975|10:00
 NT|58|Lee|slee@wsc.edu|321-654-9870|03/05/1982|16:45am
